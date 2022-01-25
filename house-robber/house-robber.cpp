@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-   int cache[105];
+   unordered_map<int,int>cache;
     
     int money_theft(vector<int>&nums,int i){
         
@@ -10,7 +10,7 @@ public:
         if(i == 1)
             return max(nums[0],nums[1]);
         
-        if(cache[i] != -1)
+        if(cache.count(i))
             return cache[i];
          
         int theft = money_theft(nums,i-2) + nums[i];
@@ -22,7 +22,7 @@ public:
     
     int rob(vector<int>& nums) {
       int n = nums.size();   
-      memset(cache,-1,sizeof(cache));
+    //  memset(cache,-1,sizeof(cache));
         return money_theft(nums,n-1);
     }
 };
