@@ -1,19 +1,19 @@
 class Solution {
 public:
     
-    unordered_map<int,int>cache;
+    int cache[1005];
     
     int mincost(vector<int>&cost,int n,int i){
-        if(i>=n)
-            return 0;
-        if(cache.count(i))
-            return cache[i];
+         
+        for(int j = n-1;j>=i;j--){
         
-        int ans1 = cost[i] + mincost(cost,n,i+1);
-        int ans2 = cost[i] + mincost(cost,n,i+2);
+        int ans1 = cost[j] + cache[j+1];
+        int ans2 = cost[j] + cache[j+2];
+            
+        cache[j]= min(ans1,ans2);
+            
+        }
         
-        if(!cache.count(i))
-            cache[i] = min(ans1,ans2);
         
         return cache[i];
     }
@@ -21,6 +21,7 @@ public:
     int minCostClimbingStairs(vector<int>& cost) {
         
         int   n = cost.size();
+        memset(cache,0,sizeof(cache));
      
         int ans1= mincost(cost,n,0);
         int ans2 = mincost(cost,n,1);
