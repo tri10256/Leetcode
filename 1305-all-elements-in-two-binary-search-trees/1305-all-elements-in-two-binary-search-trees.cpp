@@ -11,21 +11,32 @@
  */
 class Solution {
 public:
-    vector<int>vec;
-    void inorder(TreeNode *root){
-        if(!root)
-            return ;
-        
-        inorder(root->left);
-        vec.push_back(root->val);
-        inorder(root->right);
+    void push_left(stack<TreeNode*>&st,TreeNode *n){
+        while(n){
+            st.push(n);
+            n = n->left;
+        }
     }
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
         
-        inorder(root1);
-        inorder(root2);
-        sort(vec.begin(),vec.end());
+        stack<TreeNode*>st1;
+        stack<TreeNode*>st2;
+        vector<int>ans;
         
-        return vec;
+        push_left(st1,root1);
+        push_left(st2,root2);
+        
+        while(!st1.empty() || !st2.empty()){
+            stack<TreeNode*>&st = st1.empty()?st2:st2.empty()?st1:st1.top()->val<st2.top()->val?st1:st2;
+            ans.push_back(st.top()->val);
+        
+            auto n = st.top();
+            st.pop();
+            n = n->right;
+            
+            push_left(st,n);
+        }
+        
+        return ans;
     }
 };
