@@ -12,9 +12,6 @@ public:
         int ans1 = recur(freq,i+1);
         int ans2 = i*freq[i] + recur(freq,i+2);
         
-      //if(!cache.count(i))
-      
-        
        return   cache[i] =  max(ans1,ans2);;
            
     }
