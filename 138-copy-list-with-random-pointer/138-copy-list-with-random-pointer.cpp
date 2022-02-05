@@ -6,9 +6,9 @@ public:
     Node* next;
     Node* random;
     
-    Node(int _val) {   next = NULL;
-     
+    Node(int _val) {
         val = _val;
+        next = NULL;
         random = NULL;
     }
 };
@@ -16,27 +16,50 @@ public:
 
 class Solution {
 public:
+    
+    /*  A->A'->B->B'->C->C'->D->D' ,  A'->B'->C'->D' */
+    
     Node* copyRandomList(Node* head) {
-        unordered_map<Node*,Node*>map;
         
-        Node*curr = head;
+        Node *curr = head;
+        
         while(curr){
-            map[curr] = new Node(curr->val);
-            curr= curr->next;
+           Node *list = curr->next;
+           curr->next = new Node(curr->val);
+           curr->next->next = list;
+           curr = curr->next->next;
+           curr = list;
         }
-         
+        
         curr = head;
+        Node *prehead = NULL;
+        Node *chead   = NULL;
+        
         while(curr){
+          Node *list = curr->next->next;
+          if(curr->random){
+            Node *curam = curr->random;
+            curr->next->random = curam->next;
+          }
+         curr = list;
+        }
+        
+        Node* ans = new Node(0);
+        Node*helper = ans;
+        
+        while(head){
+            //To make ans
+            helper->next = head->next;
+            helper = helper->next;
             
-            Node *nai = map[curr];
-            nai->next = map[curr->next];
-            nai ->random = map[curr->random];
-             
-            curr= curr->next;
+            //To restore head
+            head->next  = head->next->next;
+            head = head->next;
         }
         
-        curr = head;
+       
         
-        return map[curr];
+        return ans->next;
+           
     }
 };
