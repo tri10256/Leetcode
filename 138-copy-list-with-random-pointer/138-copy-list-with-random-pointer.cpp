@@ -24,14 +24,17 @@ public:
             map[curr] = new Node(curr->val);
             curr= curr->next;
         }
-        
+         
         curr = head;
         while(curr){
-            map[curr]->next = map[curr->next];
-            map[curr]->random = map[curr->random];
             
+            Node *nai = map[curr];
+            nai->next = map[curr->next];
+            nai ->random = map[curr->random];
+             
             curr= curr->next;
         }
+        
         curr = head;
         
         return map[curr];
