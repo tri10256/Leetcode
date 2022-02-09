@@ -1,5 +1,6 @@
 class Solution {
 public:
+    int mod =1e9+7;
     int dp[31][1001];
     int solve(int n, int k , int target,int sum){
         if(n==1){
@@ -15,7 +16,7 @@ public:
         
         int ans = 0;
         for(int i = 1;i<=k;i++){
-            ans  =(ans+ solve(n-1,k,target,sum+i))%1000000007;    
+            ans  =(ans%mod+ solve(n-1,k,target,sum+i)%mod)%mod;    
         }
           
         return dp[n][sum]=ans;
