@@ -7,18 +7,18 @@ public:
             freq[num]++;
         }
         
-        set<pair<int,int>>st;
-       
-        for(auto &num:nums ){
-            if(freq.count(num+k) && k!=0){
-                st.insert({num,num+k});
+
+       int count = 0;
+        for(auto &num:freq ){
+            if(freq.count(num.first+k) && k!=0){
+               count++;
             }else if(k==0){
-               if(freq[num]>1){
-                   st.insert({num,num});
+               if(freq[num.first]>1){
+                  count++;
                }
             }
         }
        
-        return st.size();
+       return count;
     }
 };
