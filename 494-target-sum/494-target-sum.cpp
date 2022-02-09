@@ -16,9 +16,9 @@ public:
         if(dp[n][abs(sum)]!=-1)
             return dp[n][abs(sum)];
         
-        dp[n][abs(sum)] = solve(nums,target,sum+nums[n-1],n-1) + solve(nums,target,sum-nums[n-1],n-1);
+         int ans = solve(nums,target,sum+nums[n-1],n-1) + solve(nums,target,sum-nums[n-1],n-1);
         
-        return dp[n][abs(sum)];
+        return dp[n][abs(sum)]  = ans;
     }
     
     int findTargetSumWays(vector<int>& nums, int target) {
