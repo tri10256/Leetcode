@@ -25,7 +25,7 @@ public:
         int n = word1.size();
         int m = word2.size();
         
-        dp.assign(n+1,vector<int>(m+1,INT_MAX));
+        dp.resize(n+1,vector<int>(m+1,INT_MAX));
       
         int len = lcs(word1,word2,n,m);  
         
