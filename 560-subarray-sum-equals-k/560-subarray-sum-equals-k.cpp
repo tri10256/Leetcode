@@ -5,9 +5,12 @@ public:
         int sum  = 0;
         int n = nums.size();
         unordered_map<int,int>map;
+        /*
+        sum(i,j)=sum(0,j)-sum(0,i), where sum(i,j) represents the sum of all the elements from index i to j-1. Can we use this property to optimize it.*/
+        
         map[0] = 1;
-        for(int i = 0;i<n;i++){
-            sum+=nums[i];
+        for(int j = 0;j<n;j++){
+            sum+=nums[j];
             if(map.count(sum-k)){
                 count+=map[sum-k];
             }
