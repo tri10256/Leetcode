@@ -17,7 +17,7 @@ public:
         
         int l = 0;
         int r = 0;
-        int ans[] = {-1,0,0};
+        int ans = INT_MAX;
         unordered_map<char,int>windowcount;
         int formed = 0;
         
@@ -32,11 +32,7 @@ public:
             
             while(l<=r && formed == req){
                 
-                if(ans[0]==-1 || r-l+1<ans[0]){
-                    ans[0] = r-l+1;
-                    ans[1] = l;
-                    ans[2] = r;
-                }
+               ans = min(ans,(r-l+1));
                 
                 char c = t[l];
                 windowcount[c]--;
@@ -50,9 +46,9 @@ public:
             r++;
         }
         
-        if(ans[0]==-1)
+        if(ans==INT_MAX)
             return false;
-        if(ans[0] != n)
+        if(ans != n)
             return false;
         
         return true;
