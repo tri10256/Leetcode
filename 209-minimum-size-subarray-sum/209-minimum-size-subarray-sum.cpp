@@ -11,18 +11,12 @@ public:
         while(r<n){
             sum+=nums[r];
             
-            if(sum == target){
-                ans = min(ans,r-l+1);
-            }else if(sum>target){
-                
-                while(sum>target){
+              if(sum>=target){
+                while(sum>=target){
                     ans = min(ans,r-l+1);
                     sum-=nums[l];
                     l++;
                 }
-                
-                if(sum == target)
-                    ans = min(ans,r-l+1);
             }
             
             r++;
