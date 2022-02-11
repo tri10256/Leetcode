@@ -10,14 +10,13 @@ public:
         
         while(r<n){
             sum+=nums[r];
-            
-              if(sum>=target){
+
                 while(sum>=target){
                     ans = min(ans,r-l+1);
                     sum-=nums[l];
                     l++;
                 }
-            }
+            
             
             r++;
         }
