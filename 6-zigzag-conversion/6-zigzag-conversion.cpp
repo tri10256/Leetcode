@@ -16,10 +16,10 @@ public:
                 godown = !godown;
             }
             
-          if(godown==1)
-              curRow +=1;
+          if(godown)
+              curRow++;
           else
-              curRow +=-1;
+              curRow--;
          // curRow+=godown?1:-1;
         }
         
