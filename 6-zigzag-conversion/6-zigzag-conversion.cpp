@@ -9,12 +9,18 @@ public:
         bool godown = false;
         
         for(char c:s){
-            rows[curRow]+=c;
+            auto get = rows[curRow];
+            get+=c;
+            rows[curRow] = get;
             if(curRow == 0 || curRow == n-1){
                 godown = !godown;
             }
             
-          curRow+=godown?1:-1;
+          if(godown==1)
+              curRow +=1;
+          else
+              curRow +=-1;
+         // curRow+=godown?1:-1;
         }
         
         string ret;
