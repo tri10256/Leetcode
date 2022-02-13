@@ -9,7 +9,9 @@ public:
         bool godown = false;
         
         for(char c:s){
+        
             auto get = rows[curRow];
+              cout<<get.size()<<" ";
             get+=c;
             rows[curRow] = get;
             if(curRow == 0 || curRow == n-1){
