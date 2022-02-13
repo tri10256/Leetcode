@@ -9,20 +9,16 @@ public:
         bool godown = false;
         
         for(char c:s){
-        
-            auto get = rows[curRow];
-              cout<<get.size()<<" ";
-            get+=c;
-            rows[curRow] = get;
+            rows[curRow]+=c;
             if(curRow == 0 || curRow == n-1){
                 godown = !godown;
             }
             
-          if(godown)
-              curRow++;
-          else
-              curRow--;
-         // curRow+=godown?1:-1;
+          // if(godown)
+          //     curRow++;
+          // else
+          //     curRow--;
+          curRow+=godown?1:-1;
         }
         
         string ret;
