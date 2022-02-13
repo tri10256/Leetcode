@@ -14,11 +14,11 @@ public:
                 godown = !godown;
             }
             
-          // if(godown)
-          //     curRow++;
-          // else
-          //     curRow--;
-          curRow+=godown?1:-1;
+          if(godown)
+              curRow++;
+          else
+              curRow--;
+          //curRow+=godown?1:-1;
         }
         
         string ret;
