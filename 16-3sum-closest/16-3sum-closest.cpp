@@ -14,9 +14,9 @@ public:
                 
                 if(sum == target)
                     return sum;
-                 if(abs(target-sum )< abs(target- closest))
+                else if(abs(target-sum )< abs(target- closest))
                     closest = sum;
-                if(sum>target)
+                else if(sum>target)
                     k--;
                 else {
                     j++;
