@@ -6,11 +6,12 @@ public:
         if(n==0){
             if(sum == target || sum == -target){
                 dp[n][abs(sum)] = 1;
-                return dp[n][abs(sum)];
+               
             }else{
                 dp[n][abs(sum)] = 0;
-                return dp[n][abs(sum)];
             }
+            
+             return dp[n][abs(sum)];
         }
         
         if(dp[n][abs(sum)]!=-1)
