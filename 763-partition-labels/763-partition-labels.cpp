@@ -1,53 +1,26 @@
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        int freq[26] = {};
+        int last[26] = {};
         int n = s.size();
-        
-        for(auto ch:s){
-            freq[ch-'a']++;
+         
+        for(int i = 0; i<n;i++){
+            last[s[i]-'a'] = i;
         }
-        
+         
         int i = 0;
-        int j = 0;
         vector<int>ans;
-        unordered_map<char,int>gr;
-        while(j<n){
-             char ch = s[j];
-          
-            bool flag = false;
-            for(auto &it:gr){
-                if(it.second>0){
-                    flag = true;
-                }
+        int lastpos = 0;
+        int initial = 0;
+        for(i = 0;i<n;i++){
+            lastpos = max(lastpos,last[s[i]-'a']);
+            
+            if(i == lastpos){
+                ans.push_back(i-initial+1);
+                initial= i+1;
             }
-            if(flag){
-                
-            if(!gr.count(ch)){
-              gr[ch] = freq[ch-'a'];
-              freq[ch-'a']--;
-              gr[ch]--;
-            }else{
-                 gr[ch]--;
-                 freq[ch-'a']--;
-             }
-                
-            }else{
-              
-              int val = j-i;
-              if(val>0)
-              ans.push_back(val);
-              gr.clear();
-              i = j;
-              gr[ch] = freq[ch-'a'];
-              freq[ch-'a']--;
-              gr[ch]--;
-            }
-          j++;
         }
-        ans.push_back(j-i);
         
         return ans;
-        
     }
 };
