@@ -16,7 +16,7 @@ public:
             grlastpos = max(grlastpos,last[s[i]-'a']);
             
             if(i == grlastpos){
-                ans.push_back(i-grinitial+1);
+                ans.push_back(grlastpos-grinitial+1);
                 grinitial= i+1;
             }
         }
