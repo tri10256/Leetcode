@@ -34,12 +34,8 @@ public:
         // (1->1) , (if count of all direction is 2 or 3)
         // 0->1     (if count of all directions is 3)
                 
-                if(board[i][j]==1 && count<2){
-                    ans[i][j] = 0;
-                }else if(board[i][j] == 0 && count == 3){
+                if(board[i][j] == 0 && count == 3){
                     ans[i][j] = 1;
-                }else if(board[i][j]==1 && count >3){
-                    ans[i][j] = 0;
                 }
                 else if(board[i][j]==1 && (count==2 || count==3)){
                     ans[i][j] = 1;
