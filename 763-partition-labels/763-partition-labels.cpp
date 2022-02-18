@@ -11,7 +11,6 @@ public:
         int i = 0;
         int j = 0;
         vector<int>ans;
-        string group = "";
         unordered_map<char,int>gr;
         while(j<n){
              char ch = s[j];
@@ -25,31 +24,28 @@ public:
             if(flag){
                 
             if(!gr.count(ch)){
-              group+=ch;
               gr[ch] = freq[ch-'a'];
               freq[ch-'a']--;
               gr[ch]--;
             }else{
-                 group+=ch;
                  gr[ch]--;
                  freq[ch-'a']--;
              }
                 
             }else{
-              if(group.size()>0)
-              ans.push_back(group.size());
-                
-              group.clear();
+              
+              int val = j-i;
+              if(val>0)
+              ans.push_back(val);
               gr.clear();
-                
-              group+=ch;
+              i = j;
               gr[ch] = freq[ch-'a'];
               freq[ch-'a']--;
               gr[ch]--;
             }
           j++;
         }
-        ans.push_back(group.size());
+        ans.push_back(j-i);
         
         return ans;
         
