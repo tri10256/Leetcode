@@ -43,6 +43,8 @@ public:
         int n = h[0].size();
 
         vis[i][j] = true;
+        
+        //agar agala cell ka pani is cell se ja sakta hai to dfs maaro
         //up
         if (i-1 >= 0 && vis[i-1][j] != true && h[i-1][j] >= h[i][j])
             dfs(h, vis, i-1, j);
