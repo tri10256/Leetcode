@@ -31,8 +31,8 @@ public:
          }
          if(head->next->next == NULL){
              TreeNode *temphead = new TreeNode(head->next->val);
-             TreeNode *tempnode = new TreeNode(head->val);
-             temphead->left = tempnode;
+             TreeNode *templeft = new TreeNode(head->val);
+             temphead->left = templeft;
              return temphead;
          }
         
@@ -47,13 +47,14 @@ public:
             prev = slow;
             slow = slow->next;
         }
+         
         prev->next = NULL;
-        leftlist  = head;
-        rightlist = slow->next;
+        leftlist   = head;
+        rightlist  = slow->next;
        
         TreeNode *tree = new TreeNode(slow->val);
-        tree->left = partition(leftlist);
-        tree->right = partition(rightlist);
+        tree->left     = partition(leftlist);
+        tree->right    = partition(rightlist);
         
         return tree;
     }
