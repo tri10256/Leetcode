@@ -4,9 +4,8 @@ struct TrieNode {
     void addWord(string& word) {
         TrieNode* cur = this;
         for (char c : word) {
-            c -= 'a';
-            if (cur->children[c] == nullptr) cur->children[c] = new TrieNode();
-            cur = cur->children[c];
+            if (cur->children[c-'a'] == nullptr) cur->children[c-'a'] = new TrieNode();
+            cur = cur->children[c-'a'];
         }
         cur->word = &word;
     }
