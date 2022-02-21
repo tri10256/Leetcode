@@ -1,27 +1,23 @@
 class Solution {
 public:
     int minAddToMakeValid(string s) {
-         stack<char>st;
+        ///submitted once with the use of one stack and one string 
+        ///Time O(n), space O(n);
         
-        int count = 0;
-        for(int i = 0;i<s.size();){
-            if(s[i]=='('){
-                st.push(s[i]);
-                i++;
-            }else if(s[i] == ')'){
-                while(!st.empty() && s[i]== ')'){
-                    st.pop();
-                    i++;
-                }if(s[i] == ')'){
-                    i++;
-                    count++;
-                }
+        //sol O(n) O(1) "kiski jarurat pad rahi hai usko dekho"
+        
+        int left = 0;
+        int right = 0;
+        for(auto ch:s){
+            if(ch == '('){
+                right++;
+            }else if(right>0){
+                right--;
+            }else{
+                left++;
             }
         }
-        if(st.size()>0){
-            count+=st.size();
-        }
         
-        return count;
+        return left+right;
     }
 };
