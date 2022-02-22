@@ -12,9 +12,9 @@
 class Solution {
 public:
     TreeNode *prev = NULL;
-   
-    void flatten(TreeNode* root) {
-        if(!root)
+    
+    void dfs(TreeNode *root){
+         if(!root)
             return;
         flatten(root->right);
         flatten(root->left);
@@ -23,5 +23,9 @@ public:
         root->left = NULL;
         
         prev = root;
+    }
+   
+    void flatten(TreeNode* root) {
+        dfs(root);
     }
 };
