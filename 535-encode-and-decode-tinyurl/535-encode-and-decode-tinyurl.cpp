@@ -6,7 +6,7 @@ public:
     string generate(){
         string key = "";
         srand(time(0));
-        for(int i = 0;i<15;i++){ ///this loop runs for the length of short url;
+        for(int i = 0;i<6;i++){ ///this loop runs for the length of short url;
             int r1 = rand()%2;    ///just a way to get three unique options
             if(r1 == 0){
                 int r2 = rand()%26;
