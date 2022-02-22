@@ -16,8 +16,8 @@ public:
     void dfs(TreeNode *root){
          if(!root)
             return;
-        flatten(root->right);
-        flatten(root->left);
+        dfs(root->right);
+        dfs(root->left);
         
         root->right = prev;
         root->left = NULL;
