@@ -15,12 +15,7 @@ public:
     void preorder(TreeNode *root){
         if(!root)
             return ;
-        
-        
         preorder(root->right);  
-       
-        
-        
             if(root->left){
                 graph[root->val].push_back({root->left->val,'L'});
                 graph[root->left->val].push_back({root->val,'U'});
@@ -30,14 +25,12 @@ public:
            graph[root->right->val].push_back({root->val,'U'});
           }
          preorder(root->left);
-      
     }
-    
-  
+
     int vis[100001] = {};
     string ans = "";
     string temp = "";
-    void dfs(int s, int t){
+    void dfs(int &s, int &t){
         vis[s] = 1;
         
         auto nei = graph[s];
@@ -66,9 +59,7 @@ public:
     string getDirections(TreeNode* root, int startValue, int destValue) {
         
         preorder(root);
-        
         dfs(startValue,destValue);
-        
         return temp;
     }
 };
