@@ -6,7 +6,7 @@ public:
     string generate(){
         string key = "";
         srand(time(0));
-        for(int i = 0;i<8;i++){
+        for(int i = 0;i<1;i++){
             int r1 = rand()%2;
             if(r1 == 0){
                 int r2 = rand()%26;
