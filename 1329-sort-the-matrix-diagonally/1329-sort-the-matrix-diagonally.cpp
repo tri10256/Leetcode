@@ -4,13 +4,6 @@ public:
         int n = mat.size();
         int m = mat[0].size();
         
-//          for(auto &x:mat){
-//             for(auto &y:x){
-//                 cout<<y<<" ";
-//             }
-//             cout<<endl;
-//         }
-      // cout<<endl;
         vector<vector<int>>ans;
         
         for(int k = 0;k<m;k++){
