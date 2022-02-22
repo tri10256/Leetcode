@@ -2,10 +2,11 @@ class Solution {
 public:
     unordered_map<string,string>database;
   
+    ////generator function to generate the new tiny urls everytime
     string generate(){
         string key = "";
         srand(time(0));
-        for(int i = 0;i<6;i++){
+        for(int i = 0;i<8;i++){
             int r1 = rand()%2;
             if(r1 == 0){
                 int r2 = rand()%26;
