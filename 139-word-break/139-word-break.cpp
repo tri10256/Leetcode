@@ -1,45 +1,32 @@
 class Solution {
 public:
-    unordered_set < string > hashMap;
+    
+    unordered_set<string>st;
     unordered_map<string,bool>dp;
-    bool wordBreakHelper(string s) {
-
-        // Len denotes size of current string.
+    
+    bool helper(string s){
         int len = s.size();
-
-        // Base case.
-        if (len == 0) {
+        if(len == 0)
             return true;
-        }
         
-        if(dp.count(s)){
+        if(dp.count(s))
             return dp[s];
-        }
-        // Run a loop from 1 to length of target string.
-        bool ans = false;
-        for (int i = 1; i <= len; i++) {
-            /*
-                If substring from 0 to i exist in hash map
-                and remaining string recurs true then return true.
-            */
-            if (hashMap.find(s.substr(0, i)) != hashMap.end() and wordBreakHelper(s.substr(i, len - i))) {
-               return dp[s] = true;
+        
+        for(int i = 1 ;i<=len;i++){
+            if(st.count(s.substr(0,i)) && helper(s.substr(i,len-i))){
+                return dp[s] = true;
             }
         }
-
-        // If no solution exist then return false.
-        return dp[s] = false;
+        
+        return dp[s] =  false;
     }
-
-    bool wordBreak(string &s, vector<string>& wordDict) {
-      
-
-        // Insert all strings of a into hashmap.
-        for (string str: wordDict) {
-            hashMap.insert(str);
+    
+    bool wordBreak(string s, vector<string>& wordDict) {
+        
+        for(auto &s:wordDict){
+            st.insert(s);
         }
-
-        // Call wordBreakHelper to return answer.
-        return wordBreakHelper(s);
+        
+        return helper(s);
     }
 };
