@@ -1,6 +1,11 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
+        ///step1=traverse from back find a number smaller than prev;
+        ///step2 = traverse from back and find a number greater than number find         ////in stpe1;
+        ///if then swap the both numbers and reverse as from the step1+1 index to  /////////last to find the lexicographically smaller
+        //// 
+        
         int n = nums.size(),k,l;
         
         for(k= n-2;k>=0;k--){
