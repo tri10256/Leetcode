@@ -3,7 +3,7 @@ public:
     unordered_set<string> dict;
     vector<string> ans;
     
-    void helper(string s, string curr) {
+    void helper(string &s, string curr) {
         int len = s.size();
         
         if(len == 0) {
@@ -15,7 +15,8 @@ public:
         
         for(int i = 1; i <= len; i++) {
             if(dict.find(s.substr(0,i)) != dict.end()) {
-                helper(s.substr(i,len-i), curr + s.substr(0,i) + " ");
+                string str = s.substr(i,len-i);
+                helper( str , curr + s.substr(0,i) + " ");
             }
         }
     }
