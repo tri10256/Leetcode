@@ -2,6 +2,7 @@ class Solution {
 public:
     unordered_set<string> dict;
     vector<string> ans;
+    
     void helper(string s, string curr) {
         int len = s.size();
         
@@ -10,6 +11,7 @@ public:
             ans.push_back(curr);
             return;
         }
+        
         
         for(int i = 1; i <= len; i++) {
             if(dict.find(s.substr(0,i)) != dict.end()) {
