@@ -1,20 +1,22 @@
 class Solution {
 public:
-     static bool comp(vector<int>a,vector<int>b){
-      
-     int d1 = abs(a[0]*a[0] + a[1]*a[1]);
-    int  d2 = abs(b[0]*b[0] + b[1]*b[1]);
-      return d1<d2;
-    }     
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
  
-      // priority_queue<vector<int>,vector<vector<int>>,comp>pq(points.begin(),points.end());
-        sort(points.begin(),points.end(),comp);
-        vector<vector<int>>ans;
+       priority_queue<vector<int>,vector<vector<int>>,greater<vector<int>>>pq;
         
-        for(int i = 0;i<k;i++){
-            ans.push_back(points[i]);
+        for(auto vec:points){
+            int d1 = abs(vec[0]*vec[0] + vec[1]*vec[1]);
+            vector<int>temp{d1,vec[0],vec[1]};
+            pq.push(temp);
         }
+        vector<vector<int>>ans;
+        while(k>0){
+            auto vec = pq.top();
+            pq.pop();
+            ans.push_back({vec[1],vec[2]});
+            k--;
+        }
+       
         
         return ans;
     }
