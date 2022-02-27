@@ -19,7 +19,7 @@ public:
         }
         
         long long int l = 1;
-        long long int h = totaltime*totalTrips+10;
+        long long int h = totaltime*totalTrips;
         
         while(l<h){
             
