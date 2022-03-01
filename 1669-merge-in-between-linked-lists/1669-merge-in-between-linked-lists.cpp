@@ -19,7 +19,7 @@ public:
             if(curr->val == a-1){
                 preva = curr;
             }
-            if(curr->val == b){
+            else if(curr->val == b){
                 nextb = curr->next;
             }
         }
