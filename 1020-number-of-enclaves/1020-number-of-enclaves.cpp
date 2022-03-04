@@ -17,21 +17,21 @@ public:
             dfs(grid,nx,ny,n,m);
         }
     }
-     int count = 0;
-     void dfsi(vector<vector<int>>&grid,int i ,int j, int n, int m){
+//      int count = 0;
+//      void dfsi(vector<vector<int>>&grid,int i ,int j, int n, int m){
         
-        if(i< 0 || j< 0 || i>=n || j>=m || grid[i][j] == 0)
-            return;
+//         if(i< 0 || j< 0 || i>=n || j>=m || grid[i][j] == 0)
+//             return;
         
-        grid[i][j] = 0;
-        count++;
+//         grid[i][j] = 0;
+//         count++;
         
-        for(int k = 0;k<4;k++){
-            int nx = i+x[k];
-            int ny = j + y[k];
-            dfsi(grid,nx,ny,n,m);
-        }
-    }
+//         for(int k = 0;k<4;k++){
+//             int nx = i+x[k];
+//             int ny = j + y[k];
+//             dfsi(grid,nx,ny,n,m);
+//         }
+//     }
     
     int numEnclaves(vector<vector<int>>& grid) {
         
@@ -50,14 +50,12 @@ public:
             if(grid[i][m-1])
             dfs(grid,i,m-1,n,m);
         }
-        
+        int count = 0;
         for(int i = 0;i<n;i++){
             for(int j = 0;j<m;j++){
-                //cout<<grid[i][j]<<" ";
                 if(grid[i][j])
-                   dfsi(grid,i,j,n,m);
+                   count++;
             }
-            //cout<<endl;
         }
         
         return count;
