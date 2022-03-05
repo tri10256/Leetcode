@@ -15,7 +15,7 @@ public:
         
         sort(vec.begin(),vec.end());
         vector<int>ans;
-        for(auto &pa:vec){
+        for(auto pa:vec){
             
             int found = nums[pa.second];
             ans.push_back(found);
