@@ -1,26 +1,27 @@
 class Solution {
 public:
-    vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {   
-        vector<pair<int,int>>vec;
-        
-        for(int i = 0;i<nums.size();++i){
-            int num = nums[i];
-          string number = to_string(num); 
-            string formed = "";
-          for(int j= 0;j<number.size();++j){
-              formed+=(to_string(mapping[number[j]-'0']));
-          }
-          int value = stoi(formed);
-          vec.push_back({value,i});
+    #include<map>    
+    int getvalue(int n,vector<int>& mapping){
+        int value=0,t=1;
+        if(n==0)
+            return mapping[0];
+        while(n!=0){
+            int temp=n%10;            
+            value=mapping[temp]*t+value;
+            t=t*10, n=n/10;
         }
-        
-        sort(vec.begin(),vec.end());
-        vector<int>ans;
-        for(auto pa:vec){
-            int found = nums[pa.second];
-            ans.push_back(found);
+        return value;
+    }            
+    vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {        
+        multimap<int,int> m;
+        for(int a:nums){            
+            int temp=getvalue(a,mapping);                        
+            m.insert(make_pair(temp,a));
+        }        
+        nums.clear();
+        for(auto itr=m.begin();itr!=m.end();itr++){
+            nums.push_back(itr->second);
         }
-        
-        return ans;
+        return nums;
     }
 };
