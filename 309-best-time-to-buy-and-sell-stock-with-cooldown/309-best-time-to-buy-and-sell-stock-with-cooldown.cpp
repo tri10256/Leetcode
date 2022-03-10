@@ -1,30 +1,18 @@
 class Solution {
 public:
-    vector<int>dp;
-    
-    int Profit(vector<int>&prices,int curr,int n){
-        if(curr>=n)
-            return 0;
-        if(dp[curr] != -1)
-            return dp[curr];
-        
-        int maxVal  = 0;
-        
-        for(int i = curr+1;i<n;++i){
-            if(prices[curr] < prices[i])
-                maxVal = max(maxVal,prices[i] - prices[curr] + Profit(prices,i+2,n));
-        }
-        
-        maxVal = max(maxVal,Profit(prices,curr+1,n));
-        dp[curr] = maxVal;
-        
-        return dp[curr];
-    }
-    int maxProfit(vector<int>& prices) {
-        
-        int n = prices.size();
-        dp.resize(n,-1);
-        
-        return Profit(prices,0,n);
-    }
+	int maxProfit(vector<int>& prices){
+		if (prices.size() <= 1) return 0;
+		vector<int> s0(prices.size(), 0);
+		vector<int> s1(prices.size(), 0);
+		vector<int> s2(prices.size(), 0);
+		s1[0] = -prices[0];
+		s0[0] = 0;
+		s2[0] = INT_MIN;
+		for (int i = 1; i < prices.size(); i++) {
+			s0[i] = max(s0[i - 1], s2[i - 1]);
+			s1[i] = max(s1[i - 1], s0[i - 1] - prices[i]);
+			s2[i] = s1[i - 1] + prices[i];
+		}
+		return max(s0[prices.size() - 1], s2[prices.size() - 1]);
+	}
 };
