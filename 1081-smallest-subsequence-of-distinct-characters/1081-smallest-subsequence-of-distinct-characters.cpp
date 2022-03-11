@@ -18,11 +18,9 @@ public:
                 Set.erase(st.top());
                 st.pop();
             }
-            
-            if(Set.count(s[i]) == 0) { 
-                st.push(s[i]);
-                Set.insert(s[i]);
-            }
+    
+            st.push(s[i]);
+            Set.insert(s[i]);
         }
         
         string str = "";
