@@ -8,10 +8,10 @@ public:
            if(sum == target){
                return 1;
            }
-         if(dp[sum][j] != -1)
+           if(dp[sum][j] != -1)
              return dp[sum][j];
         
-        int count = 0;
+            int count = 0;
             for(auto i = 0;i<nums.size();i++)
             { 
                 sum+=nums[i];
