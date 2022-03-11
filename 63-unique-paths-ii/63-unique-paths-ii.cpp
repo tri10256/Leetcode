@@ -34,23 +34,23 @@ public:
         int m = Grid[0].size();
         dp.resize(n+1,vector<int>(m+1,-1));
         
-        if(n ==1){
-            for(int j = 0;j<m;j++){
-                if(Grid[0][j] == 1)
-                    return 0;
-            }
+//         if(n ==1){
+//             for(int j = 0;j<m;j++){
+//                 if(Grid[0][j] == 1)
+//                     return 0;
+//             }
          
-            return 1;
-        }
+//             return 1;
+//         }
         
-         if(m ==1){
-            for(int i = 0;i<n;i++){
-                if(Grid[i][0] == 1)
-                    return 0;
-            }
+//         if(m ==1){
+//             for(int i = 0;i<n;i++){
+//                 if(Grid[i][0] == 1)
+//                     return 0;
+//             }
          
-            return 1;
-        }
+//             return 1;
+//         }
         
         
         
