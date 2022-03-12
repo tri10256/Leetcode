@@ -10,6 +10,7 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if(head == None):
             return head
+        
         Map = dict()
         curr = head
         while(curr):
@@ -26,8 +27,6 @@ class Solution:
                 node.random = Map[curr.random]
             curr = curr.next
             
-        curr = head
-        
-        return Map[curr]
+        return Map[head]
         
         
