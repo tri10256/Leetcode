@@ -20,9 +20,9 @@ class Solution:
         curr = head
         while(curr):
             node = Map[curr]
-            if(curr.next != None):
+            if(curr.next):
                 node.next = Map[curr.next]
-            if(curr.random != None):
+            if(curr.random):
                 node.random = Map[curr.random]
             curr = curr.next
             
