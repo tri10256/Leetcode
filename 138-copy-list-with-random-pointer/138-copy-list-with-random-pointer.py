@@ -6,12 +6,11 @@ class Node:
         self.next = next
         self.random = random
 """
-from collections import defaultdict
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if(head == None):
             return head
-        Map = defaultdict()
+        Map = dict()
         curr = head
         while(curr):
             node = Node(curr.val)
@@ -19,7 +18,6 @@ class Solution:
             curr = curr.next
         
         curr = head
-        
         while(curr):
             node = Map[curr]
             if(curr.next != None):
