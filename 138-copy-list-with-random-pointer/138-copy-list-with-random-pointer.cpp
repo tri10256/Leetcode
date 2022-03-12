@@ -32,8 +32,6 @@ public:
         }
         
         curr = head;
-        Node *prehead = NULL;
-        Node *chead   = NULL;
         
         while(curr){
           Node *list = curr->next->next;
