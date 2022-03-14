@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void shortestPath(int src,int n,vector<long long>&dist, vector<vector<pair<int,int>>>&graph){
+    void shortestPath(int src,int n,vector<long long>&dist,unordered_map<int,vector<pair<int,int>>>graph){
         
         priority_queue<pair<long long,int>,vector<pair<long long ,int>>,greater<pair<long long,int>>>pq;
         dist[src]  = 0;
@@ -32,8 +32,8 @@ public:
     
     long long minimumWeight(int n, vector<vector<int>>& edges, int src1, int src2, int dest) {
         
-        vector<vector<pair<int,int>>>graphforward(n);
-        vector<vector<pair<int,int>>>graphreverse(n);
+        unordered_map<int,vector<pair<int,int>>>graphforward;
+        unordered_map<int,vector<pair<int,int>>>graphreverse;
         long long max_val = 10000000000, res = LLONG_MAX;
           
         for(auto &edge:edges){
