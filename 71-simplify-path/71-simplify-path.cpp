@@ -1,15 +1,26 @@
 class Solution {
 public:
-   string simplifyPath(string path) {
-    string res, tmp;
-    vector<string> stk;
-    stringstream ss(path);
-    while(getline(ss,tmp,'/')) {
-        if (tmp == "" or tmp == ".") continue;
-        if (tmp == ".." and !stk.empty()) stk.pop_back();
-        else if (tmp != "..") stk.push_back(tmp);
+    string simplifyPath(string path) {
+        string temp = "", res = "";
+        stringstream ss(path);
+        vector<string>stk;
+        
+        while(getline(ss,temp,'/')){
+            if(temp == "" || temp == ".")
+                continue;
+            if(temp == ".." && !stk.empty())
+                stk.pop_back();
+            else if(temp != "..")
+                stk.push_back(temp);
+        }
+        
+        for(auto str:stk){
+            res+='/'+str;
+        }
+        
+        if(!res.size())
+            return "/";
+        else
+            return res;
     }
-    for(auto str : stk) res += "/"+str;
-    return res.empty() ? "/" : res;
-  }
 };
