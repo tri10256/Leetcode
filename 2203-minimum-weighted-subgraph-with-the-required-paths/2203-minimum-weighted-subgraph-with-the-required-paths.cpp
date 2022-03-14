@@ -10,13 +10,13 @@ public:
         
         while(!pq.empty()){
             auto u = pq.top().second;
-           auto distance = pq.top().first;
+            auto distance = pq.top().first;
             pq.pop();
             visited[u] = true;
+            
             if(dist[u] != distance)
                 continue;
-           
-            
+          
             for(auto &next:graph[u]){
                 auto w = next.first;
                 auto v = next.second;
