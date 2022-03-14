@@ -4,6 +4,7 @@ public:
     void shortestPath(int src,int n,vector<long long>&dist, vector<vector<pair<int,int>>>&graph){
         
         priority_queue<pair<long long,int>,vector<pair<long long ,int>>,greater<pair<long long,int>>>pq;
+        dist[src]  = 0;
         pq.push({0,src});
         
         while(!pq.empty()){
@@ -43,15 +44,12 @@ public:
         }
         
         vector<long long>dist1(n,max_val);
-        dist1[src1] = 0;
         shortestPath(src1,n,dist1,graphforward);
         
         vector<long long>dist2(n,max_val);
-        dist2[src2] = 0;
         shortestPath(src2,n,dist2,graphforward);
         
         vector<long long>distdest(n,max_val);
-        distdest[dest] = 0;
         shortestPath(dest,n,distdest,graphreverse);
         
         if(distdest[src1] == max_val || distdest[src2] == max_val)
