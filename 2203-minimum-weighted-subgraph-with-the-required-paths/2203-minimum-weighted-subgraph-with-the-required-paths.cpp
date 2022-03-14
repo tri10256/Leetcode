@@ -5,12 +5,14 @@ public:
         
         priority_queue<pair<long long,int>,vector<pair<long long ,int>>,greater<pair<long long,int>>>pq;
         dist[src]  = 0;
+        vector<bool>visited(n,0);
         pq.push({0,src});
         
         while(!pq.empty()){
             auto u = pq.top().second;
            auto distance = pq.top().first;
             pq.pop();
+            visited[u] = true;
             if(dist[u] != distance)
                 continue;
            
@@ -19,7 +21,7 @@ public:
                 auto w = next.first;
                 auto v = next.second;
                 
-                if(dist[v] > distance + w){
+                if(!visited[v] && dist[v] > distance + w){
                     dist[v] = distance + w;
                     pq.push({dist[v],v});
                 }
