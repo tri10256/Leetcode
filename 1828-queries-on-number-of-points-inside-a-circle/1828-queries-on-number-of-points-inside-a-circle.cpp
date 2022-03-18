@@ -13,7 +13,6 @@ public:
                 int y1 = point[1];
                 
                 if((x1-x)*(x1-x) + (y1 - y)*(y1-y) <= r*r){
-                   // cout<<x1<<" "<<y1<<endl;
                     count++; 
                 }
             }
