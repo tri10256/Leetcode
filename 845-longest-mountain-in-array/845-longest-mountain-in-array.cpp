@@ -5,6 +5,10 @@ public:
         int maxi = 0;
         int i = 1;
         
+        if(len < 3)
+            return 0;
+        
+        
         while(i<len-1){
             
             if(arr[i] > arr[i-1] && arr[i] > arr[i+1]){
