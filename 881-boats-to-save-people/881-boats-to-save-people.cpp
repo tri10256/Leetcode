@@ -8,7 +8,7 @@ public:
         int i = 0;
         int j = n-1;
         
-        while(i<=j){
+        while(i<j){
             if((arr[i] + arr[j]) <= limit ){
                 count++;
                 i++;
@@ -17,6 +17,10 @@ public:
                 count++;
                 j--;
             }
+        }
+        if(i == j){
+            if(arr[i]<=limit)
+                count++;
         }
         
         return count;
