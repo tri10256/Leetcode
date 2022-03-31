@@ -15,8 +15,8 @@ public:
     int numIslands(vector<vector<char>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
-        vector<string>st;
-         vector<vector<int>>visited(n,vector<int>(m,-1));
+        int count = 0;
+        vector<vector<int>>visited(n,vector<int>(m,-1));
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
@@ -24,11 +24,11 @@ public:
                
                 string str="";
                 dfs(grid,visited,i,j,n,m,str);
-                if(visited[i][j]!=-1&& str.size()>0)
-                    st.push_back(str);
+                if(visited[i][j]!=-1 && str.size()>0)
+                    count++;
                 
             }
         }
-        return st.size();
+        return count;
     }
 };
