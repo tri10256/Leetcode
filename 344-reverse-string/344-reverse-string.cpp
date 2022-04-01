@@ -22,15 +22,15 @@ public:
             
         }*/
         // reverse(s.begin(),s.end());
-//         int i=0;
-//         int j=s.size()-1;
-//         while(i<j)
-//             swap(s[i++],s[j--]);
+        int i=0;
+        int j=s.size()-1;
+        while(i<j)
+            swap(s[i++],s[j--]);
         
-        string str="";
-        ans(s,0,str);
-        for(int i=0;i<s.size();i++)
-            s[i]=str[i];
+        // string str="";
+        // ans(s,0,str);
+        // for(int i=0;i<s.size();i++)
+        //     s[i]=str[i];
     }
    
     
