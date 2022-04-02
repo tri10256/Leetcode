@@ -19,12 +19,13 @@ public:
             if(str[s]!=str[e])
             {
                 return palcheck(str.substr(s,e-s))||palcheck(str.substr(s+1,e-s));
+            }else{
+                s++;
+                e--;
             }
-            else
-            s++;
-            e--;
         }
-        return true;
         
+        
+        return true;
     }
 };
