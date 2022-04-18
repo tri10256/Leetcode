@@ -11,19 +11,19 @@
  */
 class Solution {
 public:
-    vector<int>inorder(TreeNode *root,vector<int>&temp){
-      if(root == NULL)
-          return temp;
-        inorder(root->left,temp);
-        temp.push_back(root->val);
-        inorder(root->right,temp);
-        return temp;
-    }
     int kthSmallest(TreeNode* root, int k) {
-      vector<int>temp;
-      vector<int>nums = inorder(root,temp);
-      for(auto num:nums)
-          cout<<num<<" ";
-       return nums[k-1];
+        stack<TreeNode*>st;
+        
+        while(true){
+            while(root != NULL){
+                  st.push(root);
+                  root = root->left;
+            }
+            
+            root = st.top();
+            st.pop();
+            if(--k == 0) return root->val;
+            root = root->right;
+        }
     }
 };
