@@ -8,7 +8,6 @@ public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
         sort(boxTypes.begin(),boxTypes.end(),helper);
         
-        
         int units = 0;
         for(auto vec:boxTypes){
            
@@ -19,8 +18,6 @@ public:
            }else if(vec[0] > truckSize && truckSize >0){
                units += truckSize*vec[1];
                truckSize -= vec[0];
-           }else if(truckSize < 0){
-               break;
            }
         }
         
