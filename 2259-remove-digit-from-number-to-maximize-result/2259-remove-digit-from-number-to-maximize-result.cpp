@@ -1,28 +1,14 @@
 class Solution {
 public:
     string removeDigit(string number, char digit) {
-        vector<int>pos;
-        for(int i = 0;i<number.size();i++){
-            if(number[i] == digit){
-                pos.push_back(i);
-            }
-        }
+       string res = "";
         
-        vector<string>nums;
-        for(auto p:pos){
-            string  str = "";
-            for(int i = 0;i<number.size();i++){
-                if(i == p)
-                    continue;
-                str+=number[i];
-            }
-            
-            nums.push_back(str);
-        }
-        string res = "";
-        for(auto num:nums){
-          res = max(res,num);
-        }
+       for(int i = 0;i<number.size();i++){
+           if(number[i] == digit){
+               string temp = number.substr(0,i) + number.substr(i+1,number.size());
+               res = max(res,temp);
+           }
+       }
         
         
        return  res;
