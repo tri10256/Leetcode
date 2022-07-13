@@ -5,17 +5,17 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/matchsticks1-grid.jpg" style="width: 253px; height: 253px;">
-<pre><strong>Input:</strong> matchsticks = [1,1,2,2,2]
+<pre style="position: relative;"><strong>Input:</strong> matchsticks = [1,1,2,2,2]
 <strong>Output:</strong> true
 <strong>Explanation:</strong> You can form a square with length 2, one side of the square came two sticks with length 1.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre><strong>Input:</strong> matchsticks = [3,3,3,3,4]
+<pre style="position: relative;"><strong>Input:</strong> matchsticks = [3,3,3,3,4]
 <strong>Output:</strong> false
 <strong>Explanation:</strong> You cannot find a way to form a square with all the matchsticks.
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
