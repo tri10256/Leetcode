@@ -14,15 +14,11 @@ public:
         if(!root)
             return NULL;
         
-        if(root == p || root == q)
-            return root;
+        if(root->val < p->val && root->val < q->val)
+            return lowestCommonAncestor(root->right,p,q);
+        if(root->val > p->val && root->val > q->val)
+            return lowestCommonAncestor(root->left,p,q);
         
-        TreeNode *fleft = lowestCommonAncestor(root->left,p,q);
-        TreeNode *fright=  lowestCommonAncestor(root->right,p,q);
-        
-        if(fleft && fright)
-            return root;
-        
-        return fleft?fleft:fright;
+        return root;
     }
 };
