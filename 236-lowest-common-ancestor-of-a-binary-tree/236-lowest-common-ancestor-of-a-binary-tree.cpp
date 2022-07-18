@@ -18,7 +18,7 @@ public:
         if(root == k)
             return true;
         
-        if((root->left && findPath(root->left,k,path)) || (root->right && findPath(root->right,k,path)))
+        if((findPath(root->left,k,path)) || (findPath(root->right,k,path)))
             return true;
         
         path.pop_back();
