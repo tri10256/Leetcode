@@ -10,35 +10,23 @@
 class Solution {
 public:
     
-    bool findPath(TreeNode *root,TreeNode *k,vector<TreeNode*>&path){
-        if(!root)
-            return false;
-        
-        path.push_back(root);
-        if(root == k)
-            return true;
-        
-        if(findPath(root->left,k,path) || findPath(root->right,k,path))
-            return true;
-        
-        path.pop_back();
-        
-        
-        return false;
-    }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode*>path1,path2;
+        if(!root)
+            return NULL;
         
-        if(!findPath(root,p,path1) || !findPath(root,q,path2))
-            return new TreeNode(-1);
+        //if any one of p and q mathces with root then the root is the LCA
+        if(root == p || root == q)
+            return  root;
         
-        int i;
+    
+        TreeNode *left  = lowestCommonAncestor(root->left,p,q);
+        TreeNode *right = lowestCommonAncestor(root->right,p,q);
         
-        for(i = 0;i<path1.size() && i< path2.size();++i){
-            if(path1[i] != path2[i])
-                break;
-        }
+        // if we found one node in left and other one in right then the root is LCA
+        if(left && right)
+            return root;
         
-      return path1[i-1];
+        //if one of them is null then the node in which and tobefound node present will be our LCA
+        return left?left:right;
     }
 };
